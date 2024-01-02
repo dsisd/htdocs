@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function () {
+            // Use jQuery to make an Ajax request
+            $.ajax({
+                url: 'fetch_messages.php', // URL to your PHP file
+                type: 'GET',
+                success: function (response) {
+                    // Update the content of the result div with the PHP response
+                    $('#result').html(response);
+                },
+                error: function () {
+                    // Handle errors here
+                    alert('Error fetching content!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
